@@ -20,15 +20,52 @@
 #     - Return self.collection.count()
 
 
+import chromadb
+from chromadb.config import Settings
+
+
 class VectorStore:
     def __init__(self, collection_name: str, persist_dir: str = "./chroma_db"):
-        pass
+        self.client = chromadb.PersistentClient(
+            path=persist_dir,
+            settings=Settings(anonymized_telemetry=False)
+        )
+        self.collection = self.client.get_or_create_collection(
+            name=collection_name,
+            metadata={"hnsw:space": "cosine"}
+        )
+        print(f"Collection '{collection_name}' ready — {self.count()} docs stored.")
 
-    def upsert(self, chunks: list) -> None:
-        pass
+    def upsert(self, chunks: list[dict]) -> None:
+        if not chunks:
+            return
+        ids = [f"{c['source']}__chunk{c['chunk_index']}" for c in chunks]
+        embeddings = [c["embedding"] for c in chunks]
+        documents = [c["text"] for c in chunks]
+        metadatas = [{"source": c["source"], "chunk_index": c["chunk_index"]} for c in chunks]
 
-    def query(self, query_embedding: list, top_k: int = 3) -> list:
-        pass
+        self.collection.upsert(
+            ids=ids,
+            embeddings=embeddings,
+            documents=documents,
+            metadatas=metadatas
+        )
+        print(f"Upserted {len(chunks)} chunks into '{self.collection.name}'.")
+
+    def query(self, query_embedding: list[float], top_k: int = 3) -> list[dict]:
+        results = self.collection.query(
+            query_embeddings=[query_embedding],
+            n_results=top_k,
+            include=["documents", "metadatas", "distances"]
+        )
+        output = []
+        for i in range(len(results["documents"][0])):
+            output.append({
+                "text": results["documents"][0][i],
+                "source": results["metadatas"][0][i]["source"],
+                "distance": results["distances"][0][i]
+            })
+        return output
 
     def count(self) -> int:
-        pass
+        return self.collection.count()
