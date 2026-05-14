@@ -29,26 +29,97 @@
 #   - Return { "status": "ok", "collections": { uc1: count, uc2: count, uc3: count } }
 
 
-from fastapi import FastAPI
+# api/main.py
+# Engineer: E4 Aaditya
 
-app = FastAPI(title="NexaSupport RAG API", version="0.1.0")
+import os
+from fastapi import FastAPI, HTTPException
+from dotenv import load_dotenv
+
+from agents.ticket_resolver import TicketResolver
+from agents.onboarding_bot import OnboardingBot
+from agents.churn_advisor import ChurnAdvisor
+from api.schemas import (
+    TicketRequest, TicketResponse,
+    OnboardRequest, OnboardResponse,
+    ChurnRequest, ChurnResponse
+)
+
+load_dotenv()
+
+app = FastAPI(
+    title="NexaSupport RAG API",
+    description="AI-powered customer success platform — Groq Cloud + LLaMA 3",
+    version="0.1.0"
+)
+
+# ── Init agents once at startup ───────────────────────────
+print("Initialising agents...")
+ticket_resolver = TicketResolver()
+churn_advisor = ChurnAdvisor()
+
+# Onboarding bot supports multi-turn sessions
+# session_id → OnboardingBot instance
+sessions: dict[str, OnboardingBot] = {}
+
+print("All agents ready.")
 
 
+# ── Health check ──────────────────────────────────────────
 @app.get("/health")
 def health_check():
-    return {"status": "ok"}
+    return {
+        "status": "ok",
+        "agents": ["ticket_resolver", "onboarding_bot", "churn_advisor"],
+        "vector_db_docs": ticket_resolver.store.count()
+    }
 
 
-@app.post("/ticket")
-def resolve_ticket():
-    pass
+# ── UC-1: Ticket Resolver ─────────────────────────────────
+@app.post("/ticket", response_model=TicketResponse)
+def resolve_ticket(req: TicketRequest):
+    try:
+        result = ticket_resolver.resolve(
+            ticket_text=req.ticket_text,
+            top_k=req.top_k
+        )
+        return TicketResponse(**result)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.post("/onboard")
-def onboard_chat():
-    pass
+# ── UC-2: Onboarding Bot ──────────────────────────────────
+@app.post("/onboard", response_model=OnboardResponse)
+def onboard_chat(req: OnboardRequest):
+    try:
+        # get or create session
+        if req.session_id not in sessions:
+            sessions[req.session_id] = OnboardingBot()
+
+        bot = sessions[req.session_id]
+        result = bot.chat(user_message=req.user_message)
+        return OnboardResponse(**result)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.post("/churn")
-def churn_advice():
-    pass
+@app.delete("/onboard/{session_id}")
+def reset_session(session_id: str):
+    if session_id in sessions:
+        sessions[session_id].reset()
+        del sessions[session_id]
+        return {"status": "session cleared", "session_id": session_id}
+    return {"status": "session not found", "session_id": session_id}
+
+
+# ── UC-3: Churn Advisor ───────────────────────────────────
+@app.post("/churn", response_model=ChurnResponse)
+def churn_advice(req: ChurnRequest):
+    try:
+        result = churn_advisor.advise(
+            health_profile=req.health_profile,
+            top_k=req.top_k
+        )
+        return ChurnResponse(**result)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

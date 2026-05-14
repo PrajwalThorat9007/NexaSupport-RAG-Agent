@@ -32,28 +32,45 @@
 #   - risk_level: str
 
 
+# api/schemas.py
+# Engineer: E4 Aaditya
+
 from pydantic import BaseModel
 
 
+# ── UC-1 Ticket Resolver ──────────────────────────────────
 class TicketRequest(BaseModel):
-    pass
+    ticket_text: str
+    top_k: int = 3
 
 
 class TicketResponse(BaseModel):
-    pass
+    draft_reply: str
+    sources: list[str]
+    confidence: float
 
 
+# ── UC-2 Onboarding Bot ───────────────────────────────────
 class OnboardRequest(BaseModel):
-    pass
+    user_message: str
+    session_id: str
 
 
 class OnboardResponse(BaseModel):
-    pass
+    answer: str
+    sources: list[str]
+    history_length: int
 
 
+# ── UC-3 Churn Advisor ────────────────────────────────────
 class ChurnRequest(BaseModel):
-    pass
+    customer_id: str
+    health_profile: dict
+    top_k: int = 3
 
 
 class ChurnResponse(BaseModel):
-    pass
+    intervention_plan: str
+    action_items: list[str]
+    similar_cases: list[str]
+    risk_level: str
