@@ -1,1 +1,344 @@
-[]
+[
+  {
+    "customer_id": "CUST-001",
+    "company_name": "NovaStack Analytics",
+    "customer_tier": "Enterprise",
+    "nps_score": 5,
+    "usage_drop_pct": 25,
+    "active_users": 10,
+    "total_seats": 75,
+    "days_to_renewal": 52,
+    "last_login_days_ago": 17,
+    "open_tickets": 2,
+    "billing_events": [
+      "Credit card expiration warning"
+    ],
+    "health_status": "At Risk",
+    "notes": "Usage has declined steadily and unresolved onboarding friction is affecting team rollout."
+  },
+  {
+    "customer_id": "CUST-002",
+    "company_name": "BlueHarbor Logistics",
+    "customer_tier": "Starter",
+    "nps_score": 0,
+    "usage_drop_pct": 55,
+    "active_users": 90,
+    "total_seats": 128,
+    "days_to_renewal": 9,
+    "last_login_days_ago": 40,
+    "open_tickets": 5,
+    "billing_events": [
+      "Subscription downgrade requested",
+      "Credit hold warning",
+      "Payment method declined repeatedly"
+    ],
+    "health_status": "Critical",
+    "notes": "Finance and operations stakeholders are actively discussing contract cancellation before renewal."
+  },
+  {
+    "customer_id": "CUST-003",
+    "company_name": "MediCore Systems",
+    "customer_tier": "Growth",
+    "nps_score": 7,
+    "usage_drop_pct": 9,
+    "active_users": 190,
+    "total_seats": 223,
+    "days_to_renewal": 307,
+    "last_login_days_ago": 3,
+    "open_tickets": 2,
+    "billing_events": [],
+    "health_status": "Healthy",
+    "notes": "The organization recently increased seat allocation and reported smooth API performance."
+  },
+  {
+    "customer_id": "CUST-004",
+    "company_name": "FinAxis Capital",
+    "customer_tier": "Starter",
+    "nps_score": 10,
+    "usage_drop_pct": 13,
+    "active_users": 290,
+    "total_seats": 330,
+    "days_to_renewal": 365,
+    "last_login_days_ago": 7,
+    "open_tickets": 2,
+    "billing_events": [],
+    "health_status": "Healthy",
+    "notes": "Support interactions are minimal and the customer has renewed early for the upcoming cycle."
+  },
+  {
+    "customer_id": "CUST-005",
+    "company_name": "CloudBridge AI",
+    "customer_tier": "Growth",
+    "nps_score": 4,
+    "usage_drop_pct": 52,
+    "active_users": 113,
+    "total_seats": 229,
+    "days_to_renewal": 42,
+    "last_login_days_ago": 20,
+    "open_tickets": 10,
+    "billing_events": [
+      "Subscription downgrade requested",
+      "Escalated billing dispute"
+    ],
+    "health_status": "Critical",
+    "notes": "Finance and operations stakeholders are actively discussing contract cancellation before renewal."
+  },
+  {
+    "customer_id": "CUST-006",
+    "company_name": "EverRoute Freight",
+    "customer_tier": "Starter",
+    "nps_score": 6,
+    "usage_drop_pct": 30,
+    "active_users": 151,
+    "total_seats": 211,
+    "days_to_renewal": 48,
+    "last_login_days_ago": 19,
+    "open_tickets": 5,
+    "billing_events": [
+      "Invoice overdue 7 days",
+      "Failed payment retry x1"
+    ],
+    "health_status": "At Risk",
+    "notes": "The customer has shown reduced platform activity over the last month and requested clarification on feature usage."
+  },
+  {
+    "customer_id": "CUST-007",
+    "company_name": "PulseSync Health",
+    "customer_tier": "Enterprise",
+    "nps_score": 6,
+    "usage_drop_pct": 20,
+    "active_users": 100,
+    "total_seats": 139,
+    "days_to_renewal": 133,
+    "last_login_days_ago": 6,
+    "open_tickets": 4,
+    "billing_events": [
+      "Failed payment retry x1",
+      "Pending invoice dispute"
+    ],
+    "health_status": "At Risk",
+    "notes": "Several users stopped logging in after a workflow migration and the admin team expressed concerns about adoption."
+  },
+  {
+    "customer_id": "CUST-008",
+    "company_name": "LedgerPeak Finance",
+    "customer_tier": "Starter",
+    "nps_score": 7,
+    "usage_drop_pct": 32,
+    "active_users": 128,
+    "total_seats": 143,
+    "days_to_renewal": 32,
+    "last_login_days_ago": 9,
+    "open_tickets": 5,
+    "billing_events": [
+      "Invoice overdue 7 days"
+    ],
+    "health_status": "At Risk",
+    "notes": "The account owner mentioned evaluating alternative vendors during a recent support interaction."
+  },
+  {
+    "customer_id": "CUST-009",
+    "company_name": "VertexLoop Technologies",
+    "customer_tier": "Growth",
+    "nps_score": 9,
+    "usage_drop_pct": 13,
+    "active_users": 230,
+    "total_seats": 230,
+    "days_to_renewal": 115,
+    "last_login_days_ago": 1,
+    "open_tickets": 2,
+    "billing_events": [],
+    "health_status": "Healthy",
+    "notes": "The organization recently increased seat allocation and reported smooth API performance."
+  },
+  {
+    "customer_id": "CUST-010",
+    "company_name": "TransitHive Cargo",
+    "customer_tier": "Enterprise",
+    "nps_score": 4,
+    "usage_drop_pct": 22,
+    "active_users": 120,
+    "total_seats": 131,
+    "days_to_renewal": 167,
+    "last_login_days_ago": 17,
+    "open_tickets": 2,
+    "billing_events": [
+      "Invoice overdue 7 days",
+      "Credit card expiration warning"
+    ],
+    "health_status": "At Risk",
+    "notes": "The account owner mentioned evaluating alternative vendors during a recent support interaction."
+  },
+  {
+    "customer_id": "CUST-011",
+    "company_name": "CareSphere Clinics",
+    "customer_tier": "Growth",
+    "nps_score": 0,
+    "usage_drop_pct": 98,
+    "active_users": 76,
+    "total_seats": 138,
+    "days_to_renewal": 27,
+    "last_login_days_ago": 26,
+    "open_tickets": 5,
+    "billing_events": [
+      "Escalated billing dispute",
+      "Invoice overdue 30 days",
+      "Subscription downgrade requested",
+      "Invoice overdue 14 days"
+    ],
+    "health_status": "Critical",
+    "notes": "Platform usage dropped sharply after integration failures disrupted internal workflows across departments."
+  },
+  {
+    "customer_id": "CUST-012",
+    "company_name": "QuantumLedger",
+    "customer_tier": "Growth",
+    "nps_score": 8,
+    "usage_drop_pct": 2,
+    "active_users": 44,
+    "total_seats": 77,
+    "days_to_renewal": 258,
+    "last_login_days_ago": 4,
+    "open_tickets": 0,
+    "billing_events": [],
+    "health_status": "Healthy",
+    "notes": "The organization recently increased seat allocation and reported smooth API performance."
+  },
+  {
+    "customer_id": "CUST-013",
+    "company_name": "ByteNest Solutions",
+    "customer_tier": "Growth",
+    "nps_score": 9,
+    "usage_drop_pct": 4,
+    "active_users": 288,
+    "total_seats": 309,
+    "days_to_renewal": 324,
+    "last_login_days_ago": 1,
+    "open_tickets": 2,
+    "billing_events": [],
+    "health_status": "Healthy",
+    "notes": "Customer engagement remains high with regular admin logins and positive onboarding feedback."
+  },
+  {
+    "customer_id": "CUST-014",
+    "company_name": "FleetNova Transport",
+    "customer_tier": "Enterprise",
+    "nps_score": 3,
+    "usage_drop_pct": 77,
+    "active_users": 12,
+    "total_seats": 126,
+    "days_to_renewal": 9,
+    "last_login_days_ago": 29,
+    "open_tickets": 10,
+    "billing_events": [
+      "Failed payment retry x2",
+      "Subscription downgrade requested"
+    ],
+    "health_status": "Critical",
+    "notes": "Repeated support escalations and billing disputes indicate a high probability of churn."
+  },
+  {
+    "customer_id": "CUST-015",
+    "company_name": "HealthOrbit Labs",
+    "customer_tier": "Growth",
+    "nps_score": 3,
+    "usage_drop_pct": 100,
+    "active_users": 104,
+    "total_seats": 127,
+    "days_to_renewal": 11,
+    "last_login_days_ago": 31,
+    "open_tickets": 7,
+    "billing_events": [
+      "Credit hold warning",
+      "Payment method declined repeatedly",
+      "Invoice overdue 30 days",
+      "Failed payment retry x2"
+    ],
+    "health_status": "Critical",
+    "notes": "The customer escalated multiple complaints regarding product reliability and requested immediate executive attention."
+  },
+  {
+    "customer_id": "CUST-016",
+    "company_name": "TrustMint Financial",
+    "customer_tier": "Enterprise",
+    "nps_score": 2,
+    "usage_drop_pct": 64,
+    "active_users": 119,
+    "total_seats": 211,
+    "days_to_renewal": 22,
+    "last_login_days_ago": 17,
+    "open_tickets": 7,
+    "billing_events": [
+      "Invoice overdue 30 days",
+      "Payment method declined repeatedly",
+      "Failed payment retry x2",
+      "Credit hold warning"
+    ],
+    "health_status": "Critical",
+    "notes": "Repeated support escalations and billing disputes indicate a high probability of churn."
+  },
+  {
+    "customer_id": "CUST-017",
+    "company_name": "AetherGrid Systems",
+    "customer_tier": "Starter",
+    "nps_score": 4,
+    "usage_drop_pct": 26,
+    "active_users": 139,
+    "total_seats": 174,
+    "days_to_renewal": 34,
+    "last_login_days_ago": 11,
+    "open_tickets": 4,
+    "billing_events": [
+      "Invoice overdue 7 days"
+    ],
+    "health_status": "At Risk",
+    "notes": "The account owner mentioned evaluating alternative vendors during a recent support interaction."
+  },
+  {
+    "customer_id": "CUST-018",
+    "company_name": "CargoPilot Global",
+    "customer_tier": "Starter",
+    "nps_score": 9,
+    "usage_drop_pct": 4,
+    "active_users": 288,
+    "total_seats": 296,
+    "days_to_renewal": 307,
+    "last_login_days_ago": 7,
+    "open_tickets": 2,
+    "billing_events": [],
+    "health_status": "Healthy",
+    "notes": "Support interactions are minimal and the customer has renewed early for the upcoming cycle."
+  },
+  {
+    "customer_id": "CUST-019",
+    "company_name": "VitalBridge Medical",
+    "customer_tier": "Starter",
+    "nps_score": 6,
+    "usage_drop_pct": 42,
+    "active_users": 157,
+    "total_seats": 229,
+    "days_to_renewal": 117,
+    "last_login_days_ago": 17,
+    "open_tickets": 3,
+    "billing_events": [
+      "Usage overage alert"
+    ],
+    "health_status": "At Risk",
+    "notes": "The customer has shown reduced platform activity over the last month and requested clarification on feature usage."
+  },
+  {
+    "customer_id": "CUST-020",
+    "company_name": "Northstar Payments",
+    "customer_tier": "Enterprise",
+    "nps_score": 10,
+    "usage_drop_pct": 10,
+    "active_users": 77,
+    "total_seats": 80,
+    "days_to_renewal": 244,
+    "last_login_days_ago": 7,
+    "open_tickets": 1,
+    "billing_events": [],
+    "health_status": "Healthy",
+    "notes": "Support interactions are minimal and the customer has renewed early for the upcoming cycle."
+  }
+]
